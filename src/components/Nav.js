@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 const Nav = () => {
   const auth = localStorage.getItem("user");
@@ -20,7 +20,7 @@ const Nav = () => {
   console.log(iduser);
 
   return (
-    <div className="App">
+    <div className="App nav">
       <img
         alt="LOGO"
         className="logo-img"

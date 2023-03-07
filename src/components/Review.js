@@ -1,22 +1,27 @@
 import react, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Review() {
+  const params = useParams();
+  const { index } = params;
+
   const [review, setReview] = useState("");
   const navigate = useNavigate();
-  const [_id, set_id] = useState("");
+  const [_pid, set_pid] = useState("");
+  const [_cid, set_cid] = useState("");
 
   useEffect(() => {
     const auth = localStorage.getItem("user");
     let x = JSON.parse(auth)._id;
-    set_id(x);
+    console.log("Person id ", x);
+    set_pid(x);
+    set_cid(index);
   }, []);
 
   const handleSend = async () => {
-    console.log(_id, review);
-    let result = await fetch("http://localhost:5000/Colleges/Review/:id", {
+    let result = await fetch("http://localhost:5000/Colleges/Review", {
       method: "post",
-      body: JSON.stringify({ _id, review }),
+      body: JSON.stringify({ review: review, _pid: _pid, _cid: _cid }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -27,7 +32,6 @@ export default function Review() {
     if (result) {
       navigate("/");
     }
-    console.log(_id, review);
   };
   return (
     <>

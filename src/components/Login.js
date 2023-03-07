@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setemail] = useState("");
@@ -8,7 +8,7 @@ const Login = () => {
   useEffect(() => {
     let auth = localStorage.getItem("user");
     if (auth) navigate("/");
-  }, []);
+  });
   const handleLogin = async () => {
     console.log(email, password);
     let result = await fetch("http://localhost:5000/Login", {

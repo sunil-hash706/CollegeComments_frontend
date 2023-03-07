@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const ClgProfile = () => {
@@ -8,13 +8,13 @@ const ClgProfile = () => {
 
   useEffect(() => {
     getColleges();
-  }, []);
+  });
   const getColleges = async () => {
     let result = await fetch("http://localhost:5000/colleges");
     result = await result.json();
     console.log(result);
     for (let i = 0; i < result.length; i++) {
-      if (result[i]._id == index) {
+      if (result[i]._id === index) {
         setCollegs(result[i]);
       }
     }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -11,10 +11,10 @@ const SignUp = () => {
     if (auth) {
       navigate("/");
     }
-  }, []);
+  });
 
   const collectData = async () => {
-    if (password != cnfPassword) {
+    if (password !== cnfPassword) {
       alert("Password does not match");
     } else {
       let result = await fetch("http://localhost:5000/register", {

@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react";
+import{ useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 const CollegeList = () => {
   const [colleges, setCollegs] = useState([]);
@@ -53,12 +53,12 @@ const CollegeList = () => {
           </p>
           <div className="price">$2.00</div>
           <div className="buttons">
-            <a href="#" className="buy">
+            {/* <a href="#" className="buy">
               buy now
             </a>
             <a href="#" className="cart">
               add to cart
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
